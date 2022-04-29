@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CCard" representedClassName="CCard" syncable="YES">
+        <attribute name="bankname" optional="YES" attributeType="String"/>
+        <attribute name="cardholder" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="pin" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="typecard" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="card" inverseEntity="Client"/>
+    </entity>
+    <entity name="Client" representedClassName="Client" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="hint" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="card" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CCard" inverseName="user" inverseEntity="CCard"/>
+        <relationship name="web" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WApp" inverseName="user" inverseEntity="WApp"/>
+    </entity>
+    <entity name="WApp" representedClassName="WApp" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="uri" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <attribute name="webname" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="web" inverseEntity="Client"/>
+    </entity>
+    <elements>
+        <element name="Client" positionX="-35.50390625" positionY="-262.55859375" width="128" height="118"/>
+        <element name="WApp" positionX="-430.28515625" positionY="-45.16796875" width="128" height="133"/>
+        <element name="CCard" positionX="298.171875" positionY="-29.88671875" width="128" height="133"/>
+    </elements>
+</model>
