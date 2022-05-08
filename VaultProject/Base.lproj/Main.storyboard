@@ -90,7 +90,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="bOs-5o-rFk"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="emailTxt" destination="xKe-pc-hMV" id="MQi-lh-xHk"/>
+                        <outlet property="emailTxt" destination="xKe-pc-hMV" id="3yl-38-cfQ"/>
                         <outlet property="errorLbl" destination="oIN-iS-fyb" id="ryS-Io-0Y1"/>
                         <outlet property="passwordTxt" destination="rSp-lA-wbk" id="gTb-C2-d7f"/>
                         <segue destination="Pov-q4-8Pf" kind="show" identifier="registerView" id="MW8-Zc-Gi3"/>
@@ -154,6 +154,9 @@
                                 <color key="tintColor" red="0.0013869934019999999" green="0.0014007260100000001" blue="0.0014007260100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="ShowPassword:" destination="Y7g-lB-Vw6" eventType="touchUpInside" id="aX6-7z-DX5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-dj-sba">
                                 <rect key="frame" x="18" y="349" width="89" height="22"/>
@@ -195,7 +198,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
                                     <action selector="SaveButtonPressed:" destination="Y7g-lB-Vw6" eventType="touchUpInside" id="2lw-Uj-OKz"/>
-                                    <action selector="SignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6UP-Vs-sqP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -207,12 +209,15 @@
                         <outlet property="emailAddr" destination="lSu-4Y-hTY" id="4tt-VB-wBR"/>
                         <outlet property="errorLabel" destination="A3b-cb-Lr1" id="Qr8-xJ-5H2"/>
                         <outlet property="password" destination="B9r-T3-2QV" id="Kv0-n6-jcX"/>
+                        <outlet property="showPassBtn" destination="bnk-3X-GIH" id="Y0W-lb-Vou"/>
                         <outlet property="username" destination="hNW-aN-nfc" id="1US-DP-XAj"/>
                         <outlet property="webName" destination="mob-fF-6Gd" id="nui-38-Nsg"/>
                         <outlet property="weburi" destination="F8m-5j-g9V" id="sRf-MS-U9k"/>
+                        <segue destination="27b-C2-9wv" kind="unwind" identifier="backToDashboard" unwindAction="unwindSegue:" id="7H0-bj-TDP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnw-0x-FMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="27b-C2-9wv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2855" y="57"/>
         </scene>
@@ -330,6 +335,9 @@
                                 <color key="tintColor" red="0.0013869934019999999" green="0.0014007260100000001" blue="0.0014007260100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="doc.on.clipboard" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="CopyToClipboard:" destination="9o8-4W-VIj" eventType="touchUpInside" id="e9z-Sr-3KR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ycA-H8-aWa"/>
@@ -349,7 +357,7 @@
                         <outlet property="uriView" destination="7Im-zw-4RX" id="8Lg-9b-MiO"/>
                         <outlet property="usernameView" destination="P4h-BM-bhs" id="UhE-25-LTH"/>
                         <outlet property="webName" destination="XQX-xW-YmY" id="L0T-P8-PDm"/>
-                        <segue destination="Y7g-lB-Vw6" kind="show" identifier="editWeb" id="yEh-8G-eYt"/>
+                        <segue destination="Y7g-lB-Vw6" kind="show" identifier="goEditWeb" id="CTY-Ns-uSD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yA0-Gf-MSk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -584,9 +592,11 @@
                         <outlet property="isHidden" destination="WoI-dY-VT9" id="xqg-P4-x9V"/>
                         <outlet property="pin" destination="U9d-6i-qmL" id="5vj-EG-0zI"/>
                         <outlet property="typeCard" destination="9jC-ck-cbR" id="qSm-Z2-le2"/>
+                        <segue destination="7dh-WT-ZEm" kind="unwind" identifier="backToDashboard2" unwindAction="unwindToDashboard2:" id="lam-gg-ZHs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBP-3h-A0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="7dh-WT-ZEm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4049" y="1196"/>
         </scene>
@@ -647,6 +657,9 @@
                                 <color key="tintColor" red="0.0013869934019999999" green="0.0014007260100000001" blue="0.0014007260100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="doc.on.clipboard" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="CopyToClipboard:" destination="0rg-DY-mqQ" eventType="touchUpInside" id="rMh-tv-t5X"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oY-rC-3dS">
                                 <rect key="frame" x="18" y="449" width="31" height="22"/>
@@ -717,10 +730,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-H4-Y8d">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-H4-Y8d">
                                 <rect key="frame" x="0.0" y="185" width="390" height="659"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="659" id="hj8-nP-oY5"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="104" id="Hnd-Dy-ETA" customClass="CustomTableViewCell" customModule="VaultProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="104"/>
@@ -729,41 +744,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n7P-mx-3qd">
-                                                    <rect key="frame" x="20" y="2" width="340" height="90"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huu-Ie-elP">
-                                                            <rect key="frame" x="69" y="17" width="233" height="32"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world" translatesAutoresizingMaskIntoConstraints="NO" id="TNp-9X-Vqk">
-                                                            <rect key="frame" x="8" y="20" width="53" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGW-Ov-jok">
-                                                            <rect key="frame" x="69" y="51" width="233" height="31"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="240" id="Oqt-ke-Xi6"/>
-                                                        <constraint firstAttribute="height" constant="90" id="rbV-Pm-KuC"/>
-                                                    </constraints>
-                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world" translatesAutoresizingMaskIntoConstraints="NO" id="TNp-9X-Vqk">
+                                                    <rect key="frame" x="32" y="20" width="53" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGW-Ov-jok">
+                                                    <rect key="frame" x="137" y="50" width="233" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huu-Ie-elP">
+                                                    <rect key="frame" x="137" y="18" width="233" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="n7P-mx-3qd" secondAttribute="trailing" constant="130" id="C47-yS-uTl"/>
-                                                <constraint firstAttribute="bottom" secondItem="n7P-mx-3qd" secondAttribute="bottom" constant="12" id="IZI-HO-eBB"/>
-                                                <constraint firstItem="n7P-mx-3qd" firstAttribute="top" secondItem="Qgs-wO-AR8" secondAttribute="top" constant="2" id="hRK-b0-Xor"/>
-                                                <constraint firstItem="n7P-mx-3qd" firstAttribute="leading" secondItem="Qgs-wO-AR8" secondAttribute="leading" constant="20" symbolic="YES" id="isY-wi-pa1"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ownerName" destination="bGW-Ov-jok" id="NZe-Ev-iv1"/>
@@ -772,9 +771,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-Nq-0Om">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fr-Nq-0Om">
                                 <rect key="frame" x="0.0" y="141" width="390" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Web Application" id="laX-MR-BIB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="L9l-he-paW"/>
@@ -790,18 +788,32 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YBA-VM-Th3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oyT-H4-Y8d" firstAttribute="leading" secondItem="2Fr-Nq-0Om" secondAttribute="leading" id="P5Q-ug-7g3"/>
+                            <constraint firstItem="oyT-H4-Y8d" firstAttribute="trailing" secondItem="2Fr-Nq-0Om" secondAttribute="trailing" id="Wgm-ZU-p7U"/>
+                            <constraint firstItem="oyT-H4-Y8d" firstAttribute="trailing" secondItem="YBA-VM-Th3" secondAttribute="trailing" id="bvT-1L-b9J"/>
+                            <constraint firstItem="oyT-H4-Y8d" firstAttribute="top" secondItem="2Fr-Nq-0Om" secondAttribute="bottom" id="fLw-5E-5aj"/>
+                            <constraint firstItem="oyT-H4-Y8d" firstAttribute="leading" secondItem="YBA-VM-Th3" secondAttribute="leading" id="nAA-Tr-VFn"/>
+                            <constraint firstAttribute="bottom" secondItem="oyT-H4-Y8d" secondAttribute="bottom" id="tUy-LM-3Ch"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="MYA-8B-4sw">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="rectangle.portrait.and.arrow.right" catalog="system" id="8PB-VG-xkj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="rectangle.portrait.and.arrow.right" catalog="system" id="8PB-VG-xkj">
+                            <connections>
+                                <action selector="LogOutPressed:" destination="LXj-U3-aUF" id="LId-i2-UeQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="oyT-H4-Y8d" id="dnE-Pp-Zw5"/>
                         <segue destination="HCB-s5-IaL" kind="show" identifier="Dashboard2" id="bqo-31-lNl"/>
                         <segue destination="9o8-4W-VIj" kind="show" identifier="viewWeb" id="XdN-Xo-rfi"/>
                         <segue destination="oeH-aD-cVJ" kind="show" identifier="goAddWeb" id="8w0-32-RYe"/>
+                        <segue destination="e9x-UR-9RM" kind="unwind" identifier="logOutToLogin" unwindAction="logOut:" id="LRt-Rt-5LR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oex-VZ-UL8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="e9x-UR-9RM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="698" y="922"/>
         </scene>
@@ -809,7 +821,7 @@
         <scene sceneID="Qbj-Q5-waq">
             <objects>
                 <viewController id="oeH-aD-cVJ" customClass="AddWebViewController" customModule="VaultProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qmr-xb-2FN" customClass="ADdcar">
+                    <view key="view" contentMode="scaleToFill" id="qmr-xb-2FN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -858,6 +870,9 @@
                                 <color key="tintColor" red="0.0013869934019999999" green="0.0014007260100000001" blue="0.0014007260100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="HiddenBtnPressed:" destination="oeH-aD-cVJ" eventType="touchUpInside" id="sBE-N6-gv2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz1-Qf-vJy">
                                 <rect key="frame" x="18" y="349" width="89" height="22"/>
@@ -898,8 +913,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
-                                    <action selector="SaveButtonPressed:" destination="Y7g-lB-Vw6" eventType="touchUpInside" id="Fgv-2c-czJ"/>
-                                    <action selector="SignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7wt-gW-Xnn"/>
+                                    <action selector="SaveButtonPressed:" destination="jb8-Sr-rRX" eventType="touchUpInside" id="3kU-r5-izv"/>
+                                    <action selector="SaveButtonPressed:" destination="oeH-aD-cVJ" eventType="touchUpInside" id="oAZ-N1-Wgn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -907,8 +922,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="KNG-FA-tMl"/>
+                    <connections>
+                        <outlet property="emailAddr" destination="sdu-FE-XmE" id="FhW-zU-1eQ"/>
+                        <outlet property="errorLabel" destination="Wna-yt-Vhe" id="7P3-mK-Vn2"/>
+                        <outlet property="hiddenBtn" destination="Hhp-nE-mFK" id="gcS-ga-CLm"/>
+                        <outlet property="passTxt" destination="Lxq-Wm-27x" id="VJo-hG-vhg"/>
+                        <outlet property="uriTxt" destination="ESV-W3-axs" id="Vi2-rF-uq7"/>
+                        <outlet property="userName" destination="OdP-5G-nPo" id="0H5-fC-7hC"/>
+                        <outlet property="webName" destination="hrh-X5-kAK" id="Crj-B4-7Di"/>
+                        <segue destination="jb8-Sr-rRX" kind="unwind" identifier="backToDashboard" unwindAction="unwindSegue:" id="hyp-eu-jbS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlN-XV-g0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="jb8-Sr-rRX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="697" y="1710"/>
         </scene>
@@ -920,21 +946,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22p-Ra-T9h">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22p-Ra-T9h">
                                 <rect key="frame" x="0.0" y="141" width="390" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Web Application" id="MUw-1p-Cdd"/>
+                                    <barButtonItem title="Web Application" id="MUw-1p-Cdd">
+                                        <connections>
+                                            <action selector="backToDashboardWeb:" destination="HCB-s5-IaL" id="pcD-cl-3hg"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xy2-IM-YbL"/>
                                     <barButtonItem title="Item Card" id="dPU-45-Evt"/>
                                 </items>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" systemColor="linkColor"/>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m6H-LZ-3N6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m6H-LZ-3N6">
                                 <rect key="frame" x="0.0" y="185" width="390" height="659"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="659" id="4ar-xs-7IZ"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" rowHeight="90" id="jZh-Oj-BcG" customClass="CustomTableViewCell2" customModule="VaultProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="90"/>
@@ -943,8 +974,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit-card" translatesAutoresizingMaskIntoConstraints="NO" id="G7G-uC-Mal">
-                                                    <rect key="frame" x="30" y="18" width="53" height="50"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="credit-card" translatesAutoresizingMaskIntoConstraints="NO" id="G7G-uC-Mal">
+                                                    <rect key="frame" x="32" y="20" width="53" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="e5x-wL-yxF"/>
                                                         <constraint firstAttribute="width" constant="53" id="yLO-3Q-f8S"/>
@@ -972,17 +1003,15 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="G7G-uC-Mal" firstAttribute="top" secondItem="Kxb-Ig-Khr" secondAttribute="topMargin" constant="10" id="6Fu-Kw-I60"/>
+                                                <constraint firstItem="VGX-nf-ivW" firstAttribute="leading" secondItem="G7G-uC-Mal" secondAttribute="trailing" constant="54" id="4pD-6i-ON1"/>
                                                 <constraint firstItem="VGX-nf-ivW" firstAttribute="top" secondItem="Kxb-Ig-Khr" secondAttribute="topMargin" constant="7" id="9Rc-4i-fsJ"/>
-                                                <constraint firstItem="G7G-uC-Mal" firstAttribute="leading" secondItem="Kxb-Ig-Khr" secondAttribute="leadingMargin" constant="24" id="AMI-IS-J7i"/>
                                                 <constraint firstItem="Bre-Mb-hNp" firstAttribute="leading" secondItem="G7G-uC-Mal" secondAttribute="trailing" constant="54" id="BUN-6Y-KnK"/>
                                                 <constraint firstItem="Bre-Mb-hNp" firstAttribute="top" secondItem="VGX-nf-ivW" secondAttribute="bottom" constant="10" id="Bsv-av-XH4"/>
                                                 <constraint firstItem="VGX-nf-ivW" firstAttribute="leading" secondItem="G7G-uC-Mal" secondAttribute="trailing" constant="54" id="Ed8-Tj-Hcu"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="G7G-uC-Mal" secondAttribute="bottom" constant="10" id="OAT-Sc-jpa"/>
-                                                <constraint firstItem="G7G-uC-Mal" firstAttribute="top" secondItem="Kxb-Ig-Khr" secondAttribute="topMargin" constant="7" id="Pqh-f6-F8f"/>
                                                 <constraint firstItem="G7G-uC-Mal" firstAttribute="leading" secondItem="Kxb-Ig-Khr" secondAttribute="leadingMargin" constant="10" id="XDA-oH-8mc"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Bre-Mb-hNp" secondAttribute="bottom" constant="8" id="anf-rT-oxy"/>
                                                 <constraint firstItem="Bre-Mb-hNp" firstAttribute="top" secondItem="VGX-nf-ivW" secondAttribute="bottom" constant="10" id="j0P-SK-fXe"/>
+                                                <constraint firstItem="G7G-uC-Mal" firstAttribute="top" secondItem="Kxb-Ig-Khr" secondAttribute="topMargin" constant="7" id="rWb-d1-lAg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="G7G-uC-Mal" secondAttribute="bottom" constant="11" id="zDX-E1-Png"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -996,17 +1025,32 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w8K-5C-3Nk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m6H-LZ-3N6" firstAttribute="top" secondItem="22p-Ra-T9h" secondAttribute="bottom" id="5zo-iJ-vMl"/>
+                            <constraint firstItem="m6H-LZ-3N6" firstAttribute="leading" secondItem="22p-Ra-T9h" secondAttribute="leading" id="7jU-mb-HN8"/>
+                            <constraint firstItem="m6H-LZ-3N6" firstAttribute="trailing" secondItem="w8K-5C-3Nk" secondAttribute="trailing" id="Ach-v8-JNt"/>
+                            <constraint firstAttribute="bottom" secondItem="m6H-LZ-3N6" secondAttribute="bottom" id="GMb-7e-lLT"/>
+                            <constraint firstItem="m6H-LZ-3N6" firstAttribute="trailing" secondItem="22p-Ra-T9h" secondAttribute="trailing" id="PSY-hV-2Do"/>
+                            <constraint firstItem="m6H-LZ-3N6" firstAttribute="leading" secondItem="w8K-5C-3Nk" secondAttribute="leading" id="h8o-4F-7Gf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2bQ-tU-CQI">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="rectangle.portrait.and.arrow.right" catalog="system" id="DQQ-jp-OL3"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="rectangle.portrait.and.arrow.right" catalog="system" id="DQQ-jp-OL3">
+                            <connections>
+                                <action selector="LogOutPressed:" destination="HCB-s5-IaL" id="V9w-Q0-Wdn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="m6H-LZ-3N6" id="zr0-xz-JXp"/>
                         <segue destination="0rg-DY-mqQ" kind="show" identifier="goCardView" id="c5N-dO-2L5"/>
                         <segue destination="jNQ-2P-B6s" kind="show" identifier="goAddCard" id="hPM-jg-oqT"/>
+                        <segue destination="k3e-tB-Q0M" kind="unwind" identifier="logOutToLogin" unwindAction="logOut:" id="6EB-bf-rPd"/>
+                        <segue destination="k3e-tB-Q0M" kind="unwind" identifier="backToDashboard" unwindAction="backFromDashboard2:" id="fEe-bJ-ycO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2C-Oi-oQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="k3e-tB-Q0M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1894" y="1196"/>
         </scene>
@@ -1063,7 +1107,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system" title=""/>
                                 <connections>
-                                    <action selector="HiddenBtnPressed:" destination="3vc-W3-bkg" eventType="touchUpInside" id="Tvj-hO-tUv"/>
+                                    <action selector="HiddenBtnPressed:" destination="jNQ-2P-B6s" eventType="touchUpInside" id="9ln-xX-quo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZR-2k-7i2">
@@ -1099,7 +1143,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
-                                    <action selector="saveButtonPressed:" destination="3vc-W3-bkg" eventType="touchUpInside" id="mgL-Lt-anY"/>
+                                    <action selector="SaveBtnPressed:" destination="jNQ-2P-B6s" eventType="touchUpInside" id="Hm5-5l-QN2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWn-W3-Sje">
@@ -1114,8 +1158,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="jS2-XC-6fH"/>
+                    <connections>
+                        <outlet property="bankName" destination="k23-ek-PDe" id="mS2-ON-NKN"/>
+                        <outlet property="cardHolder" destination="zNa-AO-SYg" id="zuA-1z-YDj"/>
+                        <outlet property="countryTxt" destination="NPG-LN-ne4" id="i5a-yb-fUd"/>
+                        <outlet property="errorLabel" destination="iWn-W3-Sje" id="mMd-xU-baz"/>
+                        <outlet property="hiddenBtn" destination="ytE-lf-UZ0" id="p70-ws-kQq"/>
+                        <outlet property="pinTxt" destination="pdK-K2-vxJ" id="lJv-JS-TdO"/>
+                        <outlet property="typeCard" destination="scs-i0-jo3" id="6X8-p5-h0J"/>
+                        <segue destination="8j3-zL-IP3" kind="unwind" identifier="backToDashboard2" unwindAction="unwindToDashboard2:" id="2gB-Hq-4aT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncB-tJ-kSO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8j3-zL-IP3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1894" y="2005"/>
         </scene>
@@ -1140,7 +1195,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="niU-Uy-4aj"/>
+        <segue reference="2xF-p1-wAd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Card" width="2100" height="1500"/>

@@ -13,7 +13,7 @@ class DataManager {
     static let shared = DataManager()
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "CoreData")
+        let container = NSPersistentContainer(name: "Models")
         container.loadPersistentStores(completionHandler: {
             (storedDescription, error) in
             if let error = error as NSError? {
@@ -25,8 +25,8 @@ class DataManager {
 
     // MARK: - Save Data Function
     
-    func addData(email: String, pass: String, hint: String) -> Client {
-        let usr = Client(context: persistentContainer.viewContext)
+    func addData(email: String, pass: String, hint: String) -> Users {
+        let usr = Users(context: persistentContainer.viewContext)
         usr.email = email
         usr.password = pass
         usr.hint = hint
@@ -34,9 +34,10 @@ class DataManager {
         return usr
     }
     
-    func addWebCred(webname: String, email: String, username: String, pass: String, uri: String) -> WApp {
-        let web = WApp(context: persistentContainer.viewContext)
+    func addWebCred(webname: String, email: String, username: String, pass: String, uri: String) -> Webs {
+        let web = Webs(context: persistentContainer.viewContext)
         web.webname = webname
+        web.username = username
         web.email = email
         web.password = pass
         web.uri = uri
@@ -44,12 +45,12 @@ class DataManager {
         return web
     }
     
-    func addCardCred(bank: String, cardHolder: String, pin: Int32, type: String, country: String) -> CCard {
-        let card = CCard(context: persistentContainer.viewContext)
+    func addCardCred(bank: String, cardHolder: String, pin: String, type: String, country: String) -> Cards {
+        let card = Cards(context: persistentContainer.viewContext)
         card.bankname = bank
         card.cardholder = cardHolder
         card.pin = pin
-        card.typecard = type
+        card.type = type
         card.country = country
         
         return card

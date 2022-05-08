@@ -30,42 +30,45 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var table: UITableView!
     
-    var webApps: [WApp] = []
+    var webApps: [Webs] = []
     
-    var temp: WApp?
+    var temp: Webs?
     
     let context = DataManager.shared.persistentContainer.viewContext
     
-    let dataFetch = WApp.fetchRequest() as NSFetchRequest<WApp>
+    let dataFetch = Webs.fetchRequest() as NSFetchRequest<Webs>
     
-    var userSession: Client?
+    var userSession: Users?
+    
+    // MARK: - VIEW
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
-        fetchData()
+        
+        getData()
         table.dataSource = self
+        table.delegate = self
         view.addSubview(floatingButton)
         floatingButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        table.reloadData()
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
+        self.table.reloadData()
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         floatingButton.frame = CGRect(x: view.frame.size.width - 70, y: view.frame.size.height - 100, width: 60, height: 60)
     }
     
+    // MARK: - Function
     
     @objc func didTapButton() {
         performSegue(withIdentifier: "goAddWeb", sender: self)
-    }
-    
-    func fetchData() {
-        do {
-            webApps = try context.fetch(dataFetch)
-        } catch {
-            print("Failed to fetch webApp")
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,7 +80,6 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.webName.text = webApps[indexPath.row].webname
         cell.ownerName.text = webApps[indexPath.row].email
@@ -86,12 +88,31 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0
+        return 100.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.temp = self.webApps[indexPath.row]
-        performSegue(withIdentifier: "viewWeb", sender: self)
+        self.performSegue(withIdentifier: "viewWeb", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            
+            let item = self.webApps[indexPath.row]
+            
+            self.context.delete(item)
+            
+            do {
+                try self.context.save()
+            } catch {
+                print("error while saving")
+            }
+            
+            self.getData()
+            
+        }
+        return UISwipeActionsConfiguration(actions: [action])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,9 +123,41 @@ class Dashboard: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         else if segue.identifier == "goAddWeb" {
             let dst = segue.destination as! AddWebViewController
-            dst.webTemp = self.temp
             dst.userSession = self.userSession
         }
+        else if segue.identifier == "Dashboard2" {
+            let dst = segue.destination as! Dashboard2
+            dst.userSession = self.userSession
+        }
+    }
+    
+    func getData() {
+        let request: NSFetchRequest<Webs> = Webs.fetchRequest()
+        request.predicate = NSPredicate(format: "user = %@", userSession!)
+
+        do {
+            webApps = try context.fetch(request)
+            DispatchQueue.main.async {
+                self.table.reloadData()
+            }
+        } catch {
+            print("Failed to fetch User's Web data")
+        }
+
+    }
+    
+    @IBAction func LogOutPressed(_ sender: Any) {
+        userSession = nil
+        performSegue(withIdentifier: "logOutToLogin", sender: self)
+    }
+    
+    
+    @IBAction func unwindSegue(_ seg: UIStoryboardSegue) {
+        self.getData()
+    }
+    
+    @IBAction func backFromDashboard2 (_ seg: UIStoryboardSegue) {
+        
     }
     
     /*

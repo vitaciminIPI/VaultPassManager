@@ -10,12 +10,10 @@ import CryptoKit
 import CoreData
 
 class LoginViewController: UIViewController {
-
     
     @IBOutlet weak var emailTxt: UITextField!
     
     @IBOutlet weak var passwordTxt: UITextField!
-    
     
     @IBOutlet weak var errorLbl: UILabel!
     
@@ -23,9 +21,9 @@ class LoginViewController: UIViewController {
     
     let context = DataManager.shared.persistentContainer.viewContext
     
-    var users: [Client] = []
+    var users: [Users] = []
     
-    var userSession: Client?
+    var userSession: Users!
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -38,7 +36,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func SignInPressed(_ sender: Any) {
         let check = validateInput()
-        let request = Client.fetchRequest() as NSFetchRequest<Client>
+        let request = Users.fetchRequest() as NSFetchRequest<Users>
         
         if !check {
             errorLbl.isHidden = false
@@ -50,8 +48,10 @@ class LoginViewController: UIViewController {
             request.predicate = pred
             do {
                 users = try context.fetch(request)
+    
                 if !users.isEmpty {
                     userSession = users[0]
+                    print(userSession.email!)
                     reset()
                     performSegue(withIdentifier: "goDashboard", sender: self)
                 } else {
@@ -60,15 +60,17 @@ class LoginViewController: UIViewController {
                     errorLbl.isHidden = false
                 }
             } catch {
-                print("error")
+                errorMsg = "There is no data in Core Data"
+                errorLbl.text = errorMsg
+                errorLbl.isHidden = false
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Dashboard" {
+        if segue.identifier == "goDashboard" {
             let dst = segue.destination as! Dashboard
-            dst.userSession = self.userSession
+            dst.userSession = userSession
         }
     }
     
@@ -132,6 +134,10 @@ class LoginViewController: UIViewController {
         let hash = digest.compactMap { String(format: "%02x", $0)}.joined()
         
         return hash
+    }
+    
+    @IBAction func logOut(_ seg: UIStoryboardSegue) {
+        
     }
     
     /*

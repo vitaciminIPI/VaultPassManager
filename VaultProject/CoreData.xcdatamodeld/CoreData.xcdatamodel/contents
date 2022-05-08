@@ -4,7 +4,7 @@
         <attribute name="bankname" optional="YES" attributeType="String"/>
         <attribute name="cardholder" optional="YES" attributeType="String"/>
         <attribute name="country" optional="YES" attributeType="String"/>
-        <attribute name="pin" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pin" optional="YES" attributeType="String"/>
         <attribute name="typecard" optional="YES" attributeType="String"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="card" inverseEntity="Client"/>
     </entity>
@@ -24,8 +24,8 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="web" inverseEntity="Client"/>
     </entity>
     <elements>
+        <element name="CCard" positionX="298.171875" positionY="-29.88671875" width="128" height="119"/>
         <element name="Client" positionX="-35.50390625" positionY="-262.55859375" width="128" height="118"/>
         <element name="WApp" positionX="-430.28515625" positionY="-45.16796875" width="128" height="133"/>
-        <element name="CCard" positionX="298.171875" positionY="-29.88671875" width="128" height="133"/>
     </elements>
 </model>

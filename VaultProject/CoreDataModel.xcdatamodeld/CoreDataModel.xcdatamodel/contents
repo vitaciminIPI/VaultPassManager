@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Card" representedClassName="Card" syncable="YES">
+        <attribute name="bankname" optional="YES" attributeType="String"/>
+        <attribute name="cardholder" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="pin" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="card" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="hint" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="card" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Card" inverseName="user" inverseEntity="Card"/>
+        <relationship name="web" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Web" inverseName="user" inverseEntity="Web"/>
+    </entity>
+    <entity name="Web" representedClassName="Web" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="uri" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <attribute name="webname" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="web" inverseEntity="User"/>
+    </entity>
+    <elements>
+        <element name="Card" positionX="-54" positionY="-9" width="128" height="119"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Web" positionX="-36" positionY="9" width="128" height="119"/>
+    </elements>
 </model>

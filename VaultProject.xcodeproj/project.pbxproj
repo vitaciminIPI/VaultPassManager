@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E10C6EDE2819374300473C91 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10C6EDD2819374300473C91 /* LoginViewController.swift */; };
-		E1429B7A281B81CA00D7BE0B /* AddWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1429B79281B81CA00D7BE0B /* AddWebViewController.swift */; };
 		E1429B7C281B81DA00D7BE0B /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1429B7B281B81DA00D7BE0B /* AddCardViewController.swift */; };
 		E14B1E6A2818D27400AB2D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E692818D27400AB2D3A /* AppDelegate.swift */; };
-		E14B1E6C2818D27400AB2D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E6B2818D27400AB2D3A /* SceneDelegate.swift */; };
 		E14B1E6E2818D27400AB2D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E6D2818D27400AB2D3A /* ViewController.swift */; };
 		E14B1E712818D27400AB2D3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E14B1E6F2818D27400AB2D3A /* Main.storyboard */; };
 		E14B1E732818D27700AB2D3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E14B1E722818D27700AB2D3A /* Assets.xcassets */; };
@@ -19,23 +16,26 @@
 		E14B1E812818D27700AB2D3A /* VaultProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E802818D27700AB2D3A /* VaultProjectTests.swift */; };
 		E14B1E8B2818D27700AB2D3A /* VaultProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E8A2818D27700AB2D3A /* VaultProjectUITests.swift */; };
 		E14B1E8D2818D27700AB2D3A /* VaultProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E8C2818D27700AB2D3A /* VaultProjectUITestsLaunchTests.swift */; };
-		E14B1E9A2818E3AB00AB2D3A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E992818E3AB00AB2D3A /* RegisterViewController.swift */; };
-		E19EC87E281AF6D200C3F15E /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E19EC87C281AF6D200C3F15E /* CoreData.xcdatamodeld */; };
-		E19EC891281AF92E00C3F15E /* WApp+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC88B281AF92E00C3F15E /* WApp+CoreDataClass.swift */; };
-		E19EC892281AF92E00C3F15E /* WApp+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC88C281AF92E00C3F15E /* WApp+CoreDataProperties.swift */; };
-		E19EC893281AF92E00C3F15E /* Client+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC88D281AF92E00C3F15E /* Client+CoreDataClass.swift */; };
-		E19EC894281AF92E00C3F15E /* Client+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC88E281AF92E00C3F15E /* Client+CoreDataProperties.swift */; };
-		E19EC895281AF92E00C3F15E /* CCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC88F281AF92E00C3F15E /* CCard+CoreDataClass.swift */; };
-		E19EC896281AF92E00C3F15E /* CCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC890281AF92E00C3F15E /* CCard+CoreDataProperties.swift */; };
 		E19EC898281B030700C3F15E /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC897281B030700C3F15E /* CardViewController.swift */; };
-		E19EC89A281B0C9300C3F15E /* EditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC899281B0C9300C3F15E /* EditCardViewController.swift */; };
-		E1B7CE5C281A2AF600524A68 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CE5B281A2AF600524A68 /* Dashboard.swift */; };
 		E1B7CE9D281A407300524A68 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CE9C281A407300524A68 /* DataManager.swift */; };
-		E1B7CEB5281A93EC00524A68 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CEB4281A93EC00524A68 /* CustomTableViewCell.swift */; };
 		E1B7CEB7281A9D4800524A68 /* Dashboard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CEB6281A9D4800524A68 /* Dashboard2.swift */; };
 		E1B7CEB9281AAE0D00524A68 /* CustomTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CEB8281AAE0D00524A68 /* CustomTableViewCell2.swift */; };
 		E1B7CEBB281AB64C00524A68 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CEBA281AB64C00524A68 /* WebViewController.swift */; };
-		E1B7CEBD281AC5D400524A68 /* EditWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CEBC281AC5D400524A68 /* EditWebViewController.swift */; };
+		E1E6D5A3281BA7D60020C2FE /* EditWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CEBC281AC5D400524A68 /* EditWebViewController.swift */; };
+		E1E6D5A4281BA8700020C2FE /* EditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19EC899281B0C9300C3F15E /* EditCardViewController.swift */; };
+		E1E6D5A5281BA8F50020C2FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E6B2818D27400AB2D3A /* SceneDelegate.swift */; };
+		E1E6D5A6281BAB790020C2FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10C6EDD2819374300473C91 /* LoginViewController.swift */; };
+		E1E6D5A7281BABBD0020C2FE /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CE5B281A2AF600524A68 /* Dashboard.swift */; };
+		E1E6D5A8281BAC020020C2FE /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7CEB4281A93EC00524A68 /* CustomTableViewCell.swift */; };
+		E1E6D5A9281BAC090020C2FE /* AddWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1429B79281B81CA00D7BE0B /* AddWebViewController.swift */; };
+		E1E6D5AA281BAE6A0020C2FE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14B1E992818E3AB00AB2D3A /* RegisterViewController.swift */; };
+		E1E6D5B1281BB26B0020C2FE /* Cards+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D5AB281BB26B0020C2FE /* Cards+CoreDataClass.swift */; };
+		E1E6D5B2281BB26B0020C2FE /* Cards+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D5AC281BB26B0020C2FE /* Cards+CoreDataProperties.swift */; };
+		E1E6D5B3281BB26B0020C2FE /* Users+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D5AD281BB26B0020C2FE /* Users+CoreDataClass.swift */; };
+		E1E6D5B4281BB26B0020C2FE /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D5AE281BB26B0020C2FE /* Users+CoreDataProperties.swift */; };
+		E1E6D5B5281BB26B0020C2FE /* Webs+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D5AF281BB26B0020C2FE /* Webs+CoreDataClass.swift */; };
+		E1E6D5B6281BB26B0020C2FE /* Webs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D5B0281BB26B0020C2FE /* Webs+CoreDataProperties.swift */; };
+		E1E6D5B7281BB3330020C2FE /* Models.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E130B474281B9A38001FD6C0 /* Models.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		E10C6EDD2819374300473C91 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E130B475281B9A38001FD6C0 /* Models.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Models.xcdatamodel; sourceTree = "<group>"; };
 		E1429B79281B81CA00D7BE0B /* AddWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWebViewController.swift; sourceTree = "<group>"; };
 		E1429B7B281B81DA00D7BE0B /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		E14B1E662818D27400AB2D3A /* VaultProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VaultProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,13 +74,6 @@
 		E14B1E8A2818D27700AB2D3A /* VaultProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultProjectUITests.swift; sourceTree = "<group>"; };
 		E14B1E8C2818D27700AB2D3A /* VaultProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E14B1E992818E3AB00AB2D3A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		E19EC87D281AF6D200C3F15E /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
-		E19EC88B281AF92E00C3F15E /* WApp+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WApp+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E19EC88C281AF92E00C3F15E /* WApp+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WApp+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E19EC88D281AF92E00C3F15E /* Client+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E19EC88E281AF92E00C3F15E /* Client+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E19EC88F281AF92E00C3F15E /* CCard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CCard+CoreDataClass.swift"; sourceTree = "<group>"; };
-		E19EC890281AF92E00C3F15E /* CCard+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E19EC897281B030700C3F15E /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		E19EC899281B0C9300C3F15E /* EditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardViewController.swift; sourceTree = "<group>"; };
 		E1B7CE5B281A2AF600524A68 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
@@ -89,6 +83,12 @@
 		E1B7CEB8281AAE0D00524A68 /* CustomTableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell2.swift; sourceTree = "<group>"; };
 		E1B7CEBA281AB64C00524A68 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E1B7CEBC281AC5D400524A68 /* EditWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWebViewController.swift; sourceTree = "<group>"; };
+		E1E6D5AB281BB26B0020C2FE /* Cards+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cards+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1E6D5AC281BB26B0020C2FE /* Cards+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cards+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1E6D5AD281BB26B0020C2FE /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1E6D5AE281BB26B0020C2FE /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E1E6D5AF281BB26B0020C2FE /* Webs+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Webs+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E1E6D5B0281BB26B0020C2FE /* Webs+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Webs+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,11 +156,11 @@
 				E1B7CEB8281AAE0D00524A68 /* CustomTableViewCell2.swift */,
 				E1B7CEBA281AB64C00524A68 /* WebViewController.swift */,
 				E1B7CEBC281AC5D400524A68 /* EditWebViewController.swift */,
-				E19EC87C281AF6D200C3F15E /* CoreData.xcdatamodeld */,
 				E19EC897281B030700C3F15E /* CardViewController.swift */,
 				E19EC899281B0C9300C3F15E /* EditCardViewController.swift */,
 				E1429B79281B81CA00D7BE0B /* AddWebViewController.swift */,
 				E1429B7B281B81DA00D7BE0B /* AddCardViewController.swift */,
+				E130B474281B9A38001FD6C0 /* Models.xcdatamodeld */,
 			);
 			path = VaultProject;
 			sourceTree = "<group>";
@@ -185,12 +185,12 @@
 		E1B7CEA7281A54B000524A68 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E19EC88B281AF92E00C3F15E /* WApp+CoreDataClass.swift */,
-				E19EC88C281AF92E00C3F15E /* WApp+CoreDataProperties.swift */,
-				E19EC88D281AF92E00C3F15E /* Client+CoreDataClass.swift */,
-				E19EC88E281AF92E00C3F15E /* Client+CoreDataProperties.swift */,
-				E19EC88F281AF92E00C3F15E /* CCard+CoreDataClass.swift */,
-				E19EC890281AF92E00C3F15E /* CCard+CoreDataProperties.swift */,
+				E1E6D5AB281BB26B0020C2FE /* Cards+CoreDataClass.swift */,
+				E1E6D5AC281BB26B0020C2FE /* Cards+CoreDataProperties.swift */,
+				E1E6D5AD281BB26B0020C2FE /* Users+CoreDataClass.swift */,
+				E1E6D5AE281BB26B0020C2FE /* Users+CoreDataProperties.swift */,
+				E1E6D5AF281BB26B0020C2FE /* Webs+CoreDataClass.swift */,
+				E1E6D5B0281BB26B0020C2FE /* Webs+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,29 +326,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E19EC892281AF92E00C3F15E /* WApp+CoreDataProperties.swift in Sources */,
+				E1E6D5B7281BB3330020C2FE /* Models.xcdatamodeld in Sources */,
+				E1E6D5AA281BAE6A0020C2FE /* RegisterViewController.swift in Sources */,
+				E1E6D5B3281BB26B0020C2FE /* Users+CoreDataClass.swift in Sources */,
+				E1E6D5A9281BAC090020C2FE /* AddWebViewController.swift in Sources */,
+				E1E6D5A8281BAC020020C2FE /* CustomTableViewCell.swift in Sources */,
+				E1E6D5B2281BB26B0020C2FE /* Cards+CoreDataProperties.swift in Sources */,
+				E1E6D5A7281BABBD0020C2FE /* Dashboard.swift in Sources */,
+				E1E6D5A6281BAB790020C2FE /* LoginViewController.swift in Sources */,
+				E1E6D5A5281BA8F50020C2FE /* SceneDelegate.swift in Sources */,
+				E1E6D5A4281BA8700020C2FE /* EditCardViewController.swift in Sources */,
+				E1E6D5B5281BB26B0020C2FE /* Webs+CoreDataClass.swift in Sources */,
+				E1E6D5A3281BA7D60020C2FE /* EditWebViewController.swift in Sources */,
 				E1B7CEBB281AB64C00524A68 /* WebViewController.swift in Sources */,
+				E1E6D5B6281BB26B0020C2FE /* Webs+CoreDataProperties.swift in Sources */,
 				E14B1E6E2818D27400AB2D3A /* ViewController.swift in Sources */,
-				E19EC896281AF92E00C3F15E /* CCard+CoreDataProperties.swift in Sources */,
+				E1E6D5B1281BB26B0020C2FE /* Cards+CoreDataClass.swift in Sources */,
 				E1B7CEB9281AAE0D00524A68 /* CustomTableViewCell2.swift in Sources */,
+				E1E6D5B4281BB26B0020C2FE /* Users+CoreDataProperties.swift in Sources */,
 				E1B7CE9D281A407300524A68 /* DataManager.swift in Sources */,
-				E19EC895281AF92E00C3F15E /* CCard+CoreDataClass.swift in Sources */,
 				E1B7CEB7281A9D4800524A68 /* Dashboard2.swift in Sources */,
 				E1429B7C281B81DA00D7BE0B /* AddCardViewController.swift in Sources */,
 				E19EC898281B030700C3F15E /* CardViewController.swift in Sources */,
-				E19EC894281AF92E00C3F15E /* Client+CoreDataProperties.swift in Sources */,
-				E19EC891281AF92E00C3F15E /* WApp+CoreDataClass.swift in Sources */,
 				E14B1E6A2818D27400AB2D3A /* AppDelegate.swift in Sources */,
-				E19EC893281AF92E00C3F15E /* Client+CoreDataClass.swift in Sources */,
-				E1B7CEB5281A93EC00524A68 /* CustomTableViewCell.swift in Sources */,
-				E14B1E6C2818D27400AB2D3A /* SceneDelegate.swift in Sources */,
-				E19EC87E281AF6D200C3F15E /* CoreData.xcdatamodeld in Sources */,
-				E1B7CEBD281AC5D400524A68 /* EditWebViewController.swift in Sources */,
-				E1429B7A281B81CA00D7BE0B /* AddWebViewController.swift in Sources */,
-				E1B7CE5C281A2AF600524A68 /* Dashboard.swift in Sources */,
-				E19EC89A281B0C9300C3F15E /* EditCardViewController.swift in Sources */,
-				E10C6EDE2819374300473C91 /* LoginViewController.swift in Sources */,
-				E14B1E9A2818E3AB00AB2D3A /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,13 +692,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E19EC87C281AF6D200C3F15E /* CoreData.xcdatamodeld */ = {
+		E130B474281B9A38001FD6C0 /* Models.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E19EC87D281AF6D200C3F15E /* CoreData.xcdatamodel */,
+				E130B475281B9A38001FD6C0 /* Models.xcdatamodel */,
 			);
-			currentVersion = E19EC87D281AF6D200C3F15E /* CoreData.xcdatamodel */;
-			path = CoreData.xcdatamodeld;
+			currentVersion = E130B475281B9A38001FD6C0 /* Models.xcdatamodel */;
+			path = Models.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

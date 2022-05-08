@@ -35,7 +35,7 @@ class RegisterViewController: UIViewController {
     
     var errorMsg = ""
     
-    var userSession: Client?
+    var userSession: Users?
     
 //    Debug Core Data
 //    var userFetch: NSFetchRequest<User> = User.fetchRequest()
@@ -83,9 +83,9 @@ class RegisterViewController: UIViewController {
     }
     
     func checkDuplicateData () -> Bool {
-        var temp: [Client] = []
+        var temp: [Users] = []
         let context = DataManager.shared.persistentContainer.viewContext
-        let request = Client.fetchRequest() as NSFetchRequest<Client>
+        let request = Users.fetchRequest() as NSFetchRequest<Users>
         let pred = NSPredicate(format: "email LIKE %@", emailTxt.text!)
         request.predicate = pred
         do {

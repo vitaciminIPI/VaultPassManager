@@ -9,7 +9,7 @@ import UIKit
 
 class WebViewController: UIViewController {
 
-    var webApp: WApp?
+    var webApp: Webs?
     
     @IBOutlet weak var webName: UITextField!
     
@@ -25,7 +25,7 @@ class WebViewController: UIViewController {
     
     var isHidden = false
     
-    var userSession: Client?
+    var userSession: Users?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,6 @@ class WebViewController: UIViewController {
         emailView.isUserInteractionEnabled = false
         usernameView.isUserInteractionEnabled = false
         passView.isUserInteractionEnabled = false
-        passView.isSecureTextEntry = true
         uriView.isUserInteractionEnabled = false
         
         webName.text = webApp?.webname
@@ -51,25 +50,32 @@ class WebViewController: UIViewController {
             let image = UIImage(systemName: "eye")
             showBtn.setImage(image, for: .normal)
             isHidden = false
+            passView.isSecureTextEntry = true
         }
         else {
             let image = UIImage(systemName: "eye.fill")
             showBtn.setImage(image, for: .normal)
             isHidden = true
+            passView.isSecureTextEntry = false
         }
     }
     
     @IBAction func EditWebPressed(_ sender: Any) {
-        performSegue(withIdentifier: "editWeb", sender: self)
+        performSegue(withIdentifier: "goEditWeb", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editWeb" {
+        if segue.identifier == "goEditWeb" {
             let dst = segue.destination as! EditWebViewController
             dst.webAppTemp = self.webApp
             dst.userSession = self.userSession
         }
     }
+    
+    @IBAction func CopyToClipboard(_ sender: Any) {
+        UIPasteboard.general.string = passView.text
+    }
+    
     
     /*
     // MARK: - Navigation

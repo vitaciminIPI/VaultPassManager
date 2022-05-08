@@ -9,9 +9,9 @@ import UIKit
 
 class CardViewController: UIViewController {
 
-    var cardTemp: CCard?
+    var cardTemp: Cards?
     
-    var userSession: Client?
+    var userSession: Users?
     
     @IBOutlet weak var bankName: UITextField!
     
@@ -29,11 +29,17 @@ class CardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PIN.isHidden = true
+        
+        bankName.isUserInteractionEnabled = false
+        cardHolder.isUserInteractionEnabled = false
+        PIN.isUserInteractionEnabled = false
+        typeCard.isUserInteractionEnabled = false
+        countryName.isUserInteractionEnabled = false
+        
         bankName.text = cardTemp?.bankname
         cardHolder.text = cardTemp?.cardholder
-        PIN.text = "\(cardTemp?.pin)"
-        typeCard.text = cardTemp?.typecard
+        PIN.text = cardTemp?.pin
+        typeCard.text = cardTemp?.type
         countryName.text = cardTemp?.country
         // Do any additional setup after loading the view.
     }
@@ -43,11 +49,13 @@ class CardViewController: UIViewController {
             let image = UIImage(systemName: "eye")
             hiddenBtn.setImage(image, for: .normal)
             isHidden = false
+            PIN.isSecureTextEntry = true
         }
         else {
             let image = UIImage(systemName: "eye.fill")
             hiddenBtn.setImage(image, for: .normal)
             isHidden = true
+            PIN.isSecureTextEntry = false
         }
     }
     
@@ -62,6 +70,11 @@ class CardViewController: UIViewController {
     
     @IBAction func EditBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: "goEditCard", sender: self)
+    }
+    
+    
+    @IBAction func CopyToClipboard(_ sender: Any) {
+        UIPasteboard.general.string = PIN.text
     }
     
     /*

@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Cards" representedClassName="Cards" syncable="YES">
+        <attribute name="bankname" optional="YES" attributeType="String"/>
+        <attribute name="cardholder" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="pin" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="card" inverseEntity="Users"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="hint" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="card" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cards" inverseName="user" inverseEntity="Cards"/>
+        <relationship name="web" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Webs" inverseName="user" inverseEntity="Webs"/>
+    </entity>
+    <entity name="Webs" representedClassName="Webs" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="uri" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <attribute name="webname" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="web" inverseEntity="Users"/>
+    </entity>
+    <elements>
+        <element name="Cards" positionX="-313.1953125" positionY="-34.84375" width="128" height="133"/>
+        <element name="Users" positionX="-54.953125" positionY="-130.109375" width="128" height="118"/>
+        <element name="Webs" positionX="179.171875" positionY="-43.38671875" width="128" height="133"/>
+    </elements>
 </model>

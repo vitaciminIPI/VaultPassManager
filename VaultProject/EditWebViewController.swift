@@ -10,7 +10,7 @@ import CryptoKit
 
 class EditWebViewController: UIViewController {
 
-    var webAppTemp: WApp?
+    var webAppTemp: Webs?
     
     @IBOutlet weak var webName: UITextField!
     
@@ -24,12 +24,18 @@ class EditWebViewController: UIViewController {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var showPassBtn: UIButton!
+    
     var errorMsg = ""
     
-    var userSession: Client?
+    var userSession: Users?
+    
+    var isHidden = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         password.isSecureTextEntry = true
         errorLabel.isHidden = true
         webName.text = webAppTemp?.webname
@@ -51,18 +57,18 @@ class EditWebViewController: UIViewController {
     }
     
     @IBAction func SaveButtonPressed(_ sender: Any) {
-        let check = validateInput()
-        
-        if !check {
-            errorLabel.isHidden = false
-        } else {
-            errorLabel.isHidden = true
-            let hashedPass = hashFunction()
-            let newWebApp = DataManager.shared.addWebCred(webname: webName.text!, email: emailAddr.text!, username: username.text!, pass: hashedPass, uri: weburi.text!)
-            DataManager.shared.save()
-            userSession?.addToWeb(newWebApp)
-            reset()
-        }
+//        let check = validateInput()
+        performSegue(withIdentifier: "backToDashboard", sender: self)
+//        if !check {
+//            errorLabel.isHidden = false
+//        } else {
+//            errorLabel.isHidden = true
+//            let hashedPass = hashFunction()
+//            let newWebApp = DataManager.shared.addWebCred(webname: webName.text!, email: emailAddr.text!, username: username.text!, pass: hashedPass, uri: weburi.text!)
+//            DataManager.shared.save()
+//            userSession?.addToWeb(newWebApp)
+//            reset()
+//        }
     }
     
     
@@ -152,6 +158,21 @@ class EditWebViewController: UIViewController {
         return hash
     }
     
+    
+    @IBAction func ShowPassword(_ sender: Any) {
+        if isHidden {
+            let image = UIImage(systemName: "eye")
+            showPassBtn.setImage(image, for: .normal)
+            isHidden = false
+            password.isSecureTextEntry = true
+        }
+        else {
+            let image = UIImage(systemName: "eye.fill")
+            showPassBtn.setImage(image, for: .normal)
+            isHidden = true
+            password.isSecureTextEntry = false
+        }
+    }
     
     /*
     // MARK: - Navigation
