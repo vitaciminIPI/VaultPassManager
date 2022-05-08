@@ -1,8 +1,8 @@
 //
-//  Client+CoreDataProperties.swift
+//  Users+CoreDataProperties.swift
 //  VaultProject
 //
-//  Created by daniel stefanus christiawan on 28/04/22.
+//  Created by daniel stefanus christiawan on 29/04/22.
 //
 //
 
@@ -10,28 +10,28 @@ import Foundation
 import CoreData
 
 
-extension Client {
+extension Users {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Client> {
-        return NSFetchRequest<Client>(entityName: "Client")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Users> {
+        return NSFetchRequest<Users>(entityName: "Users")
     }
 
     @NSManaged public var email: String?
-    @NSManaged public var password: String?
     @NSManaged public var hint: String?
+    @NSManaged public var password: String?
     @NSManaged public var card: NSSet?
     @NSManaged public var web: NSSet?
 
 }
 
 // MARK: Generated accessors for card
-extension Client {
+extension Users {
 
     @objc(addCardObject:)
-    @NSManaged public func addToCard(_ value: CCard)
+    @NSManaged public func addToCard(_ value: Cards)
 
     @objc(removeCardObject:)
-    @NSManaged public func removeFromCard(_ value: CCard)
+    @NSManaged public func removeFromCard(_ value: Cards)
 
     @objc(addCard:)
     @NSManaged public func addToCard(_ values: NSSet)
@@ -42,13 +42,13 @@ extension Client {
 }
 
 // MARK: Generated accessors for web
-extension Client {
+extension Users {
 
     @objc(addWebObject:)
-    @NSManaged public func addToWeb(_ value: WApp)
+    @NSManaged public func addToWeb(_ value: Webs)
 
     @objc(removeWebObject:)
-    @NSManaged public func removeFromWeb(_ value: WApp)
+    @NSManaged public func removeFromWeb(_ value: Webs)
 
     @objc(addWeb:)
     @NSManaged public func addToWeb(_ values: NSSet)
@@ -58,6 +58,6 @@ extension Client {
 
 }
 
-extension Client : Identifiable {
+extension Users : Identifiable {
 
 }
