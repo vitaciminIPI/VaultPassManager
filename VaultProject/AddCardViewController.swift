@@ -34,6 +34,11 @@ class AddCardViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func emailValidation(email: String) -> Bool {
+        let regex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"#
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: email)
+        
+    }
     
     func inputValidate() -> Bool {
         guard let bank = bankName.text else {
@@ -73,6 +78,11 @@ class AddCardViewController: UIViewController {
         }
         else if cardHolders.isEmpty {
             errorMsg = "Card holder must be filled!"
+            errorLabel.text = errorMsg
+            return false
+        }
+        else if !emailValidation(email: cardHolders) {
+            errorMsg = "Invalid email address!"
             errorLabel.text = errorMsg
             return false
         }

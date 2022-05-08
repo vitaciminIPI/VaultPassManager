@@ -51,7 +51,6 @@ class LoginViewController: UIViewController {
     
                 if !users.isEmpty {
                     userSession = users[0]
-                    print(userSession.email!)
                     reset()
                     performSegue(withIdentifier: "goDashboard", sender: self)
                 } else {

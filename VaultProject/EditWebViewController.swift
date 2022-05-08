@@ -32,6 +32,7 @@ class EditWebViewController: UIViewController {
     
     var isHidden = true
     
+    let context = DataManager.shared.persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,18 +58,27 @@ class EditWebViewController: UIViewController {
     }
     
     @IBAction func SaveButtonPressed(_ sender: Any) {
-//        let check = validateInput()
-        performSegue(withIdentifier: "backToDashboard", sender: self)
-//        if !check {
-//            errorLabel.isHidden = false
-//        } else {
-//            errorLabel.isHidden = true
-//            let hashedPass = hashFunction()
-//            let newWebApp = DataManager.shared.addWebCred(webname: webName.text!, email: emailAddr.text!, username: username.text!, pass: hashedPass, uri: weburi.text!)
-//            DataManager.shared.save()
-//            userSession?.addToWeb(newWebApp)
-//            reset()
-//        }
+        let check = validateInput()
+        
+        if !check {
+            errorLabel.isHidden = false
+        } else {
+            errorLabel.isHidden = true
+            webAppTemp?.webname = webName.text
+            webAppTemp?.email = emailAddr.text
+            webAppTemp?.password = password.text
+            webAppTemp?.username = username.text
+            webAppTemp?.uri = weburi.text
+            
+            do {
+                try context.save()
+            } catch {
+                print("error while saving data")
+            }
+            
+            reset()
+            performSegue(withIdentifier: "backToDashboard", sender: self)
+        }
     }
     
     
@@ -146,16 +156,6 @@ class EditWebViewController: UIViewController {
         
         return true
         
-    }
-    
-    func hashFunction() -> String {
-        let pass = password.text!
-        let data = Data(pass.utf8)
-        let digest = SHA256.hash(data: data)
-        let hash = digest.compactMap { String(format: "%02x", $0)}.joined()
-        print(hash)
-        
-        return hash
     }
     
     

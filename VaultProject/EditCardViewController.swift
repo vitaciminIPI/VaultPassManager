@@ -31,6 +31,8 @@ class EditCardViewController: UIViewController {
     
     var errorMsg = ""
     
+    let context = DataManager.shared.persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,19 +64,35 @@ class EditCardViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "backToDashboard2", sender: self)
-//        let check = inputValidate()
-//
-//        if !check {
-//            errorLabel.isHidden = false
-//        }
-//        else {
-//            errorLabel.isHidden = true
-////            let encryptPass =
-//            let newCard = DataManager.shared.addCardCred(bank: bankName.text!, cardHolder: cardHolder.text!, pin: pin.text!, type: typeCard.text!, country: Country.text!)
-//            DataManager.shared.save()
-//            userSession?.addToCard(newCard)
-//        }
+    
+        let check = inputValidate()
+
+        if !check {
+            errorLabel.isHidden = false
+        }
+        else {
+            errorLabel.isHidden = true
+            cardTemp?.bankname = bankName.text
+            cardTemp?.cardholder = cardHolder.text
+            cardTemp?.pin = pin.text
+            cardTemp?.type = typeCard.text
+            cardTemp?.country = Country.text
+            
+            do {
+                try context.save()
+            } catch {
+                print("Error while saving data")
+            }
+            
+            reset()
+            performSegue(withIdentifier: "backToDashboard2", sender: self)
+        }
+    }
+    
+    func emailValidation(email: String) -> Bool {
+        let regex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"#
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: email)
+        
     }
     
     func inputValidate() -> Bool {
@@ -115,6 +133,11 @@ class EditCardViewController: UIViewController {
         }
         else if cardHolders.isEmpty {
             errorMsg = "Card holder must be filled!"
+            errorLabel.text = errorMsg
+            return false
+        }
+        else if !emailValidation(email: cardHolders) {
+            errorMsg = "Invalid email address!"
             errorLabel.text = errorMsg
             return false
         }
